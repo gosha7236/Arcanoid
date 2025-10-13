@@ -19,10 +19,10 @@ namespace Arcanoid
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
 
-        public class Form1 : Form
+        public class MainForm : Form
         {
             // === Основные игровые объекты ===
             private Rectangle paddle;        // Платформа (ракетка)
@@ -53,7 +53,7 @@ namespace Arcanoid
             private Brush paddleBrush = Brushes.DarkGreen;
             private Brush ballBrush = Brushes.Black;
 
-            public Form1()
+            public MainForm()
             {
                 // Настройки окна
                 this.Text = "Арканоид - WinForms";
