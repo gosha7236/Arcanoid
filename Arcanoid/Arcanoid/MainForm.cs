@@ -2,7 +2,9 @@
 
 namespace Arcanoid
 {
-
+    /// <summary>
+    /// главная форма
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -118,18 +120,18 @@ namespace Arcanoid
             Color.DarkRed      // верхний ряд (6 ударов)
                 };
 
-            for (int r = 0; r < rows; r++)
+            for (int row = 0; row < rows; row++)
             {
-                for (int c = 0; c < cols; c++)
+                for (int column = 0; column < cols; column++)
                 {
-                    int x = padding + c * (brickWidth + padding);
-                    int y = topOffset + r * (brickHeight + padding);
+                    int x = padding + column * (brickWidth + padding);
+                    int y = topOffset + row * (brickHeight + padding);
 
                     // Нижний ряд = 1 удар, верхний = rows ударов
-                    int hits = (rows - r);
+                    int hits = (rows - row);
 
                     // Добавляем кирпич с цветом по ряду
-                    bricks.Add(new Brick(new Rectangle(x, y, brickWidth, brickHeight), hits, rowColors[r]));
+                    bricks.Add(new Brick(new Rectangle(x, y, brickWidth, brickHeight), hits, rowColors[row]));
                 }
             }
         }
@@ -335,11 +337,19 @@ namespace Arcanoid
         /// </summary>
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left) moveLeft = true;
-            if (e.KeyCode == Keys.Right) moveRight = true;
+            if (e.KeyCode == Keys.Left)
+            {
+                moveLeft = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                moveRight = true;
+            }
 
             if (e.KeyCode == Keys.P) // пауза
+            {
                 isPaused = !isPaused;
+            }
 
             if (e.KeyCode == Keys.Space) // отпустить шар
             {
@@ -352,15 +362,25 @@ namespace Arcanoid
                 }
             }
             if (e.KeyCode == Keys.R) // рестарт
+            {
                 InitializeGame();
+            }
 
             if (e.KeyCode == Keys.Escape) // выход
+            {
                 Application.Exit();
+            }
         }
         private void GameForm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left) moveLeft = false;
-            if (e.KeyCode == Keys.Right) moveRight = false;
+            if (e.KeyCode == Keys.Left)
+            {
+                moveLeft = false;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                moveRight = false;
+            }
         }
         /// <summary>
         /// Движение платформы мышью
