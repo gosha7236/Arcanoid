@@ -143,7 +143,8 @@ namespace Arcanoid
         {
             if (isPaused)
             {
-                Invalidate(); return;
+                Invalidate();
+                return;
             }
 
             // === Управление платформой ===
