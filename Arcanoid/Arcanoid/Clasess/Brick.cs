@@ -11,9 +11,21 @@ namespace Arcanoid.Clasess
     /// </summary>
     public class Brick
     {
+        /// <summary>
+        /// хранит положение
+        /// </summary>
         public Rectangle Rect;
+        /// <summary>
+        /// хранит ряд
+        /// </summary>
         public int Hits;
+        /// <summary>
+        /// хранит цвет
+        /// </summary>
         public Color Color;
+        /// <summary>
+        /// свойство для отображения
+        /// </summary>
         public bool Visible => Hits > 0;
         /// <summary>
         /// конструктор для класса с 3 компонентами

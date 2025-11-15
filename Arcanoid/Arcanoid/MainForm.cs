@@ -205,7 +205,10 @@ namespace Arcanoid
                 for (int i = 0; i < bricks.Count; i++)
                 {
                     var br = bricks[i];
-                    if (!br.Visible)  continue;
+                    if (!br.Visible)
+                    {
+                        continue;
+                    }
 
                     if (ball.IntersectsWith(br.Rect))
                     {
@@ -225,12 +228,17 @@ namespace Arcanoid
 
                         // Меняем направление в зависимости от стороны
                         if (collidedHorizontally)
+                        {
                             ballVelX = -ballVelX;
+                        }
                         else if (collidedVertically)
+                        {
                             ballVelY = -ballVelY;
+                        }
                         else
+                        {
                             ballVelY = -ballVelY;
-
+                        }
                         // Уменьшаем "прочность" кирпича
                         br.Hits--;
                         if (br.Hits <= 0)
@@ -260,9 +268,14 @@ namespace Arcanoid
                             MessageBoxIcon.Question);
 
                         if (res == DialogResult.Yes)
+
+                        {
                             InitializeGame();
+                        }
                         else
+                        {
                             Application.Exit();
+                        }
                     }
                     else
                     {
@@ -316,7 +329,10 @@ namespace Arcanoid
             // Кирпичи
             foreach (var br in bricks)
             {
-                if (!br.Visible) continue;
+                if (!br.Visible)
+                {
+                    continue;
+                }
                 using (SolidBrush brush = new SolidBrush(br.Color))
                 {
                     g.FillRectangle(brush, br.Rect);
